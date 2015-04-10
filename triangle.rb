@@ -13,15 +13,30 @@
 # and
 #   about_triangle_project_2.rb
 #
+# NOTE: Draft 1:
+#def triangle(a, b, c)
+  #if a == b && b == c && c == a
+    #:equilateral
+  #elsif a != b && b != c && c != a
+    #:scalene
+  #else
+    #:isosceles
+  #end
+#end
+
 def triangle(a, b, c)
-  if a == b && b == c && c == a
+  sides_equal = [ a == b, b == c, c == a]
+  if sides_equal.all?
     :equilateral
-  elsif a != b && b != c && c != a
+  elsif sides_equal.none?
     :scalene
   else
     :isosceles
   end
 end
+
+
+
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
