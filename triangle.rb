@@ -25,6 +25,9 @@
 #end
 
 def triangle(a, b, c)
+  raise TriangleError if [a, b, c].any?{ |value| value <= 0 }
+  raise TriangleError unless (a + b) > c && (b + c) > a && (a + c) > b
+
   sides_equal = [ a == b, b == c, c == a]
   if sides_equal.all?
     :equilateral
