@@ -26,7 +26,13 @@
 
 def triangle(a, b, c)
   raise TriangleError if [a, b, c].any?{ |value| value <= 0 }
-  raise TriangleError unless (a + b) > c && (b + c) > a && (a + c) > b
+  # Draft 1:
+  # Geometry Rule XYZ: any combination of two sides should be greater
+  # than the third
+   raise TriangleError unless (a + b) > c && (b + c) > a && (a + c) > b
+  # Draft 2:
+  #values = [a, b, c].sort
+  #raise TriangleError unless values [0] + values [1] > values [2]
 
   sides_equal = [ a == b, b == c, c == a]
   if sides_equal.all?
