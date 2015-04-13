@@ -4,6 +4,10 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 #
 class DiceSet
   attr_reader :values
+  # attr_reader generates:
+  #def values
+    #@values
+  #end
 
   def initialize
     @potential_die = (1..6).to_a
