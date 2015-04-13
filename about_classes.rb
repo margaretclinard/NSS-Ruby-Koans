@@ -155,12 +155,12 @@ class AboutClasses < Neo::Koan
     end
   end
 
-  #def test_inside_a_method_self_refers_to_the_containing_object
-    #fido = Dog7.new("Fido")
+  def test_inside_a_method_self_refers_to_the_containing_object
+    fido = Dog7.new("Fido")
 
-    #fidos_self = fido.get_self
-    #assert_equal "<Dog named 'Fido'>", fidos_self
-  #end
+    fidos_self = fido.get_self
+    assert_equal fido, fidos_self
+  end
 
   def test_to_s_provides_a_string_version_of_the_object
     fido = Dog7.new("Fido")
