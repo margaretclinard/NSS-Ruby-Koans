@@ -3,17 +3,34 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 # Implement a DiceSet Class here:
 #
 class DiceSet
-  def roll size
-    while values = (1..size).map { rand(6) + 1 } and values == @values
-      puts "Dup points. Reroll..."
+  attr_reader :values
+
+  def initialize
+    @potential_die = (1..6).to_a
+  end
+
+  def roll(number)
+    @values = []
+    number.times do
+      @values << @potential_die.sample
     end
-
-    @values = values
+    #@values = [@potential_die.sample, @potential_die.sample, @potential_die.sample, @potential_die.sample, @potential_die.sample]
   end
 
-  def values
-    @values
-  end
+
+
+  #Draft 1
+  #def roll size
+    #while values = (1..size).map { rand(6) + 1 } and values == @values
+      #puts "Dup points. Reroll..."
+    #end
+
+    #@values = values
+  #end
+
+  #def values
+    #@values
+  #end
 end
 
 class AboutDiceProject < Neo::Koan
